@@ -19,7 +19,7 @@ class EnterYourWeightViewController: UIViewController {
     @IBAction func btnSavePressed(sender: AnyObject) {
         if let weight = txtWeight.text{
             if weight.isEmpty == false{
-                let appDel: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
+                let appDel = (UIApplication.shared.delegate as! AppDelegate)
                 let context: NSManagedObjectContext = appDel.managedObjectContext
                 let ent = NSEntityDescription.entity(forEntityName: "UserWeights", in: context)!
                 
@@ -37,8 +37,8 @@ class EnterYourWeightViewController: UIViewController {
                 }
                 
                 let dateFormatter = DateFormatter()
-                let curLocale: NSLocale = Locale.current as NSLocale
-                let formatString: NSString = DateFormatter.dateFormat(fromTemplate: "EdMMM h:mm a", options: 0, locale: curLocale as Locale)! as NSString
+                let curLocale = Locale.current as NSLocale
+                let formatString = DateFormatter.dateFormat(fromTemplate: "EdMMM h:mm a", options: 0, locale: curLocale as Locale)! as NSString
                 dateFormatter.dateFormat = formatString as String
                 newWeight.date = dateFormatter.string(from: NSDate() as Date)
                 

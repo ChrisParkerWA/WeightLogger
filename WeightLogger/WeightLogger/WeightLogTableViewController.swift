@@ -21,7 +21,7 @@ class WeightLogTableViewController: UITableViewController {
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserWeights")
         request.returnsObjectsAsFaults = false
-        let results: NSArray = try! context.fetch(request) as NSArray
+        let results = try! context.fetch(request) as NSArray
         
         for weightEntry in results{
             context.delete(weightEntry as! NSManagedObject)
@@ -69,7 +69,7 @@ class WeightLogTableViewController: UITableViewController {
         let results: NSArray = try! context.fetch(request) as NSArray
         
         //get contents and put into cell
-        let thisWeight: UserWeights = results[indexPath.row] as! UserWeights
+        let thisWeight = results[indexPath.row] as! UserWeights
         cell.textLabel?.text = thisWeight.weight + " " + thisWeight.units
         cell.detailTextLabel?.text = thisWeight.date
         return cell
@@ -87,10 +87,10 @@ class WeightLogTableViewController: UITableViewController {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserWeights")
         request.returnsObjectsAsFaults = false
         
-        let results: NSArray = try! context.fetch(request) as NSArray
+        let results = try! context.fetch(request) as NSArray
         
         //Get value that is being deeleted
-        let tmpObject: NSManagedObject = results[indexPath.row] as! NSManagedObject
+        let tmpObject = results[indexPath.row] as! NSManagedObject
         let delWeight = tmpObject.value(forKey: "weight") as? String
         print("Deleted Weight: \(String(describing: delWeight))")
         
