@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="B0h-6x-k3L">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeightLogger" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight Logger" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRs-Yg-J8D">
+                                <rect key="frame" x="128" y="92" width="158.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iVl-yy-HHB">
+                                <rect key="frame" x="152" y="264" width="110" height="30"/>
+                                <state key="normal" title="Log your weight">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="B0h-6x-k3L" kind="popoverPresentation" popoverAnchorView="iVl-yy-HHB" id="tS5-Qe-ywN">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iVl-yy-HHB" firstAttribute="top" secondItem="VRs-Yg-J8D" secondAttribute="bottom" constant="142" id="RKf-iJ-5Bx"/>
+                            <constraint firstItem="VRs-Yg-J8D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cao-qa-fNO"/>
+                            <constraint firstItem="VRs-Yg-J8D" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="48" id="fhY-lb-wnq"/>
+                            <constraint firstItem="iVl-yy-HHB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fn7-k4-r28"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1107" y="-488"/>
+        </scene>
+        <!--Enter Weight-->
+        <scene sceneID="hhI-HD-OtO">
+            <objects>
+                <viewController id="AA0-6f-DN1" customClass="EnterYourWeightViewController" customModule="WeightLogger" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rEW-5J-1KT"/>
+                        <viewControllerLayoutGuide type="bottom" id="vtD-MQ-VoR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K62-GB-tEh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your weight..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="P1X-Uq-fV6">
+                                <rect key="frame" x="20" y="172" width="253" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Hu3-fI-DMQ">
+                                <rect key="frame" x="292" y="171" width="102" height="31"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wU9-CZ-RFX">
+                                        <rect key="frame" x="0.0" y="0.0" width="20.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CnY-lb-kyU">
+                                        <rect key="frame" x="25.5" y="0.0" width="51" height="31"/>
+                                    </switch>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lbs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FON-1Q-SQK">
+                                        <rect key="frame" x="79.5" y="0.0" width="22.5" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uie-n9-KbD">
+                                <rect key="frame" x="148.5" y="273" width="117" height="30"/>
+                                <state key="normal" title="Save your weight">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSavePressedWithSender:" destination="AA0-6f-DN1" eventType="touchUpInside" id="Syp-s0-SBN"/>
+                                    <segue destination="INg-tv-QDV" kind="show" identifier="saveWeightBtn" id="msr-W8-U6B"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Uie-n9-KbD" firstAttribute="centerX" secondItem="K62-GB-tEh" secondAttribute="centerX" id="2Yk-5s-Lea"/>
+                            <constraint firstItem="wU9-CZ-RFX" firstAttribute="leading" secondItem="P1X-Uq-fV6" secondAttribute="trailing" constant="19" id="D3h-9w-WO8"/>
+                            <constraint firstItem="P1X-Uq-fV6" firstAttribute="top" secondItem="rEW-5J-1KT" secondAttribute="bottom" constant="84" id="Qlq-11-fmg"/>
+                            <constraint firstAttribute="trailing" secondItem="Hu3-fI-DMQ" secondAttribute="trailing" constant="20" id="aqT-ND-oca"/>
+                            <constraint firstItem="P1X-Uq-fV6" firstAttribute="leading" secondItem="K62-GB-tEh" secondAttribute="leading" constant="20" id="k24-dC-692"/>
+                            <constraint firstItem="Uie-n9-KbD" firstAttribute="top" secondItem="P1X-Uq-fV6" secondAttribute="bottom" constant="67" id="rnW-4M-Hag"/>
+                            <constraint firstItem="Hu3-fI-DMQ" firstAttribute="top" secondItem="rEW-5J-1KT" secondAttribute="bottom" constant="83" id="sni-4H-7vb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Enter Weight" id="XPg-eW-M4I">
+                        <barButtonItem key="leftBarButtonItem" title="Home" id="beZ-8P-bQ5">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="rR7-ZR-fnm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Log" id="8dl-4O-3IB">
+                            <connections>
+                                <segue destination="INg-tv-QDV" kind="show" id="RD1-7n-TSx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="txtWeight" destination="P1X-Uq-fV6" id="G3L-ge-a9Z"/>
+                        <outlet property="units" destination="CnY-lb-kyU" id="h11-45-kWa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t4Z-TX-BGC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="242.0289855072464" y="287.94642857142856"/>
+        </scene>
+        <!--Weight Log Table View Controller-->
+        <scene sceneID="UzT-KE-m7q">
+            <objects>
+                <tableViewController id="INg-tv-QDV" customClass="WeightLogTableViewController" customModule="WeightLogger" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="RNK-Dl-UpK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Nvi-AP-aFN">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nvi-AP-aFN" id="CRl-GS-qTk">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="INg-tv-QDV" id="Xym-ya-t5G"/>
+                            <outlet property="delegate" destination="INg-tv-QDV" id="UkI-Eg-5l3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="gct-gR-Qgg">
+                        <barButtonItem key="rightBarButtonItem" title="Clear Log" id="sZ9-K3-8y4">
+                            <connections>
+                                <action selector="btnClearLogWithSender:" destination="INg-tv-QDV" id="HbY-Hb-6sJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tblView" destination="RNK-Dl-UpK" id="JX1-8Z-TaJ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3R4-5O-NGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1183" y="278"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dEs-Xk-lY0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B0h-6x-k3L" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1ja-hs-P3h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="AA0-6f-DN1" kind="relationship" relationship="rootViewController" id="U80-Lx-OCS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YJK-H8-hAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="164" y="-488"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="msr-W8-U6B"/>
+    </inferredMetricsTieBreakers>
+</document>
