@@ -29,10 +29,11 @@ class EnterYourWeightViewController: UIViewController {
                 //Fill in the Core Data
                 newWeight.weight = weight
                 if (units.isOn) {
-                    newWeight.units = "lbs"
+                    newWeight.units = "kgs"
                 } else {
                     //Switch is off
-                    newWeight.units = "kgs"
+                    newWeight.units = "lbs"
+                    
                 }
                 
                 let dateFormatter = DateFormatter()
