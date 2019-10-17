@@ -1,4 +1,4 @@
-Weight Logger 
+# WeightLogger
 =============
 
 
