@@ -16,9 +16,17 @@ class EnterYourWeightViewController: UIViewController {
     @IBOutlet var txtWeight : UITextField!
     @IBOutlet var units : UISwitch!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        txtWeight.text = ""
+    }
+
     @IBAction func btnSavePressed(sender: AnyObject) {
-        if let weight = txtWeight.text{
-            if weight.isEmpty == false{
+        if let weight = txtWeight.text {
+            if weight.isEmpty == false {
                 let appDel = (UIApplication.shared.delegate as! AppDelegate)
                 let context: NSManagedObjectContext = appDel.managedObjectContext
                 let ent = NSEntityDescription.entity(forEntityName: "UserWeights", in: context)!
@@ -26,14 +34,13 @@ class EnterYourWeightViewController: UIViewController {
                 //Instance of our custom class, reference to entity
                 let newWeight = UserWeights(entity: ent, insertInto: context)
                 
-                //Fill in the Core Data
+                //  Fill in the Core Data
                 newWeight.weight = weight
                 if (units.isOn) {
                     newWeight.units = "kgs"
                 } else {
                     //Switch is off
                     newWeight.units = "lbs"
-                    
                 }
                 
                 let dateFormatter = DateFormatter()
@@ -45,8 +52,10 @@ class EnterYourWeightViewController: UIViewController {
                 do {
                     try context.save()
                 } catch {
+                    fatalError("Unable to save data to Core Data")
                 }
-            }else{
+                
+            } else {
                 //User carelessly pressed save button without entering weight.
                 let alert = UIAlertController(title: "No Weight Entered", message: "Enter your weight before pressing save.", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: {(result)in
@@ -54,7 +63,7 @@ class EnterYourWeightViewController: UIViewController {
                 }))
                 self.present(alert, animated: true, completion: nil)
             }
-        }else{
+        } else {
             print("No element text for the UITextField 'txtWeight'")
         }
     }
@@ -63,18 +72,5 @@ class EnterYourWeightViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        txtWeight.text = ""
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
     
 }

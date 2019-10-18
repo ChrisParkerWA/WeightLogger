@@ -15,6 +15,18 @@ class WeightLogTableViewController: UITableViewController {
     
     @IBOutlet var tblView : UITableView?
     
+       override func viewDidLoad() {
+           super.viewDidLoad()
+           let appDel = (UIApplication.shared.delegate as! AppDelegate)
+           let context = appDel.managedObjectContext
+           
+           let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserWeights")
+           request.returnsObjectsAsFaults = false
+           
+           totalEntries =  try! context.count(for: request)
+           
+       }
+    
     @IBAction func btnClearLog(sender : AnyObject) {
         let appDel = (UIApplication.shared.delegate as! AppDelegate)
         let context = appDel.managedObjectContext
@@ -28,29 +40,14 @@ class WeightLogTableViewController: UITableViewController {
         }
         do {
             try context.save()
-        } catch _ {
+        } catch {
+            fatalError("Unable to save data to Core Data")
         }
         totalEntries = 0
         tableView?.reloadData()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let appDel = (UIApplication.shared.delegate as! AppDelegate)
-        let context = appDel.managedObjectContext
-        
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserWeights")
-        request.returnsObjectsAsFaults = false
-        
-        totalEntries =  try! context.count(for: request)
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    // #pragma mark - UITableViewDataSource Methods
+    // MARK: - UITableViewDataSource Methods
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -79,6 +76,7 @@ class WeightLogTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //delete object from entity, remove from list
       
@@ -89,16 +87,19 @@ class WeightLogTableViewController: UITableViewController {
         
         let results = try! context.fetch(request) as NSArray
         
-        //Get value that is being deeleted
+        // Get value that is being deleted to print diagnostics
         let tmpObject = results[indexPath.row] as! NSManagedObject
         let delWeight = tmpObject.value(forKey: "weight") as? String
         print("Deleted Weight: \(String(describing: delWeight))")
         
         context.delete(results[indexPath.row] as! NSManagedObject)
+        
         do {
             try context.save()
-        } catch _ {
+        } catch {
+            fatalError("Unable to save data to Core Data")
         }
+        
         totalEntries = totalEntries - 1
         tableView.deleteRows(at: [indexPath], with: .fade)
         print("Done")
